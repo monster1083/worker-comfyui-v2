@@ -43,15 +43,16 @@ RUN wget -qO- https://astral.sh/uv/install.sh | sh \
 ENV PATH="/opt/venv/bin:${PATH}"
 
 # Install comfy-cli + dependencies needed by it to install ComfyUI
-RUN uv pip install comfy-cli pip setuptools wheel \
+RUN uv pip install pip setuptools wheel \
     && uv pip install "numpy<2" \
+    && torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124
     && rm -rf /root/.cache/uv /root/.cache/pip
 
 # Install ComfyUI
-RUN /usr/bin/yes | comfy --workspace /comfyui install --version "${COMFYUI_VERSION}" --cuda-version "12.4" --nvidia
+RUN uv pip install comfy-cli \
+    && rm -rf /root/.cache/uv /root/.cache/pip
 
-# Upgrade PyTorch if needed (for newer CUDA versions)
-RUN uv pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124
+RUN /usr/bin/yes | comfy --workspace /comfyui install --version "${COMFYUI_VERSION}" --cuda-version "12.4" --nvidia
 
 # Change working directory to ComfyUI
 WORKDIR /comfyui
