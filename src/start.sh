@@ -39,10 +39,10 @@ ls -la /runpod-volume/comfyui/models/insightface/
 if [ -d "/runpod-volume/ComfyUI/models/insightface" ]; then
     echo "/runpod-volume/ComfyUI/models/insightface directory exists." 
     
-    # Create a soft link to /comfyi/models/insightface if it doesn't already exist 목적지에 없으면,
+    # Create a soft link to /comfyui/models/insightface if it doesn't already exist 목적지에 없으면,
     if [ ! -L "/comfyui/models/insightface" ]; then
-        ln -s /runpod-volume/ComfyUI/models/insightface /comfyi/models/insightface 
-        echo "Created a soft link to /comfyi/models/insightface."
+        ln -s /runpod-volume/ComfyUI/models/insightface /comfyui/models/insightface 
+        echo "Created a soft link to /comfyui/models/insightface."
     else
         echo "Soft link already exists."
     fi 
