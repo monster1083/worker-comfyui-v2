@@ -43,10 +43,6 @@ RUN wget -qO- https://astral.sh/uv/install.sh | sh \
 ENV PATH="/opt/venv/bin:${PATH}"
 
 # Install comfy-cli + dependencies needed by it to install ComfyUI
-RUN pip install uv
-RUN uv venv --system-site-packages /opt/venv
-ENV PATH="/opt/venv/bin:${PATH}"
-
 RUN uv pip install comfy-cli pip setuptools wheel \
     && uv pip install "numpy<2" \
     && rm -rf /root/.cache/uv /root/.cache/pip
