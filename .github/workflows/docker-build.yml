@@ -34,7 +34,6 @@ jobs:
           docker system prune -af --volumes
           df -h
 
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -55,11 +54,11 @@ jobs:
           cache-to: type=gha,mode=max
           provenance: false
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/worker-comfyui:${{ github.run_id }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/worker-comfyui:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/worker-comfyui-v2:${{ github.run_id }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/worker-comfyui-v2:latest
           build-args: |
             MODEL_TYPE=none
-      
+
       - name: Cleanup Docker (free space)
         if: always()
         run: |
