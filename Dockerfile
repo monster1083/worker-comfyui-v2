@@ -45,7 +45,7 @@ ENV PATH="/opt/venv/bin:${PATH}"
 # Install comfy-cli + dependencies needed by it to install ComfyUI
 RUN uv pip install pip setuptools wheel \
     && uv pip install "numpy<2" \
-    && torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124
+    && torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124 \
     && rm -rf /root/.cache/uv /root/.cache/pip
 
 # Install ComfyUI
