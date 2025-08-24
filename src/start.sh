@@ -24,10 +24,14 @@ fi
 
 echo "----------------------ls /runpod-volume/ComfyUI/models----------------------------"
 echo "ls -la /runpod-volume/ComfyUI/models"
+ls -la /runpod-volume/ComfyUI/models/
 echo "ls -la /runpod-volume/ComfyUI/models/insightface"
+ls -la /runpod-volume/ComfyUI/models/insightface/
 echo "----------------------ls /runpod-volume/comfyui/models----------------------------"
 echo "ls -la /runpod-volume/comfyui/models/"
+ls -la /runpod-volume/comfyui/models/
 echo "ls -la /runpod-volume/comfyui/models/insightface"
+ls -la /runpod-volume/comfyui/models/insightface/
 
 
 
