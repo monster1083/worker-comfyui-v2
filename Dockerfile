@@ -21,18 +21,11 @@ ENV CMAKE_BUILD_PARALLEL_LEVEL=8
 ENV PIP_NO_CACHE_DIR=1
 
 # Install Python, git and other necessary tools
-RUN apt-get update && apt-get install -y \
-    build-essential gcc g++ make cmake \
-    python3-dev \
-    python3.11 \
-    python3.11-venv \
-    git \
-    wget \
-    libgl1 \
-    libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender1 \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential g++ gcc make pkg-config cmake ninja-build \
+    python3.11 python3.11-venv python3.11-dev \
+    git wget \
+    libgl1 libglib2.0-0 libsm6 libxext6 libxrender1 \
     ffmpeg \
     && ln -sf /usr/bin/python3.11 /usr/bin/python \
     && ln -sf /usr/bin/pip3 /usr/bin/pip
@@ -50,6 +43,10 @@ RUN wget -qO- https://astral.sh/uv/install.sh | sh \
 ENV PATH="/opt/venv/bin:${PATH}"
 
 # Install comfy-cli + dependencies needed by it to install ComfyUI
+RUN pip install uv
+RUN uv venv --system-site-packages /opt/venv
+ENV PATH="/opt/venv/bin:${PATH}"
+
 RUN uv pip install comfy-cli pip setuptools wheel \
     && uv pip install "numpy<2" \
     && rm -rf /root/.cache/uv /root/.cache/pip
