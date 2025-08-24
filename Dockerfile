@@ -53,7 +53,7 @@ RUN uv pip install comfy-cli pip setuptools wheel \
     && rm -rf /root/.cache/uv /root/.cache/pip
 
 # Install ComfyUI
-RUN /usr/bin/yes | comfy --workspace /comfyui install --version "${COMFYUI_VERSION}" --cuda-version "12.4.1" --nvidia
+RUN /usr/bin/yes | comfy --workspace /comfyui install --version "${COMFYUI_VERSION}" --cuda-version "12.4" --nvidia
 
 # Upgrade PyTorch if needed (for newer CUDA versions)
 RUN uv pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124
