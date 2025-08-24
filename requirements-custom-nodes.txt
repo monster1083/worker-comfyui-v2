@@ -1,0 +1,42 @@
+# Custom nodes dependencies
+# Core dependencies
+# opencv-python
+gguf
+numba
+piexif
+
+# Machine learning and scientific computing
+# scikit-image
+# accelerate
+
+# Utilities
+# simpleeval
+
+# Hugging Face compatibility fix
+# huggingface_hub
+
+# Additional packages that might be needed by various custom nodes
+# (uncomment as needed)
+# transformers
+
+
+
+# requests
+# websocket-client
+# lark
+
+# pandas
+
+blend_modes
+segment_anything
+numpy<2
+cython
+onnxruntime-gpu==1.18.1
+insightface==0.7.3
+
+facexlib
+ftfy
+timm
+
+python-dotenv==1.0.1
+boto3==1.34.32
