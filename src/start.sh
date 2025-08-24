@@ -36,7 +36,7 @@ ls -la /runpod-volume/comfyui/models/insightface/
 
 
 # Check if /runpod-volume/ComfyUI/models/insightface is mounted
-if [ -d " /runpod-volume/ComfyUI/models/insightface" ]; then
+if [ -d "/runpod-volume/ComfyUI/models/insightface" ]; then
     echo "/runpod-volume/ComfyUI/models/insightface directory exists." 
     
     # Create a soft link to /comfyi/models/insightface if it doesn't already exist 목적지에 없으면,
