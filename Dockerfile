@@ -22,6 +22,7 @@ ENV PIP_NO_CACHE_DIR=1
 
 # Install Python, git and other necessary tools
 RUN apt-get update && apt-get install -y \
+    build-essential gcc g++ make cmake \
     python3.11 \
     python3.11-venv \
     git \
