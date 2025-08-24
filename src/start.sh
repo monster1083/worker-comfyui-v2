@@ -1,6 +1,7 @@
 #!/usr/bin/env bash 
 
 # ─────────────────────────────────────────────────────────────
+
 # Copy all custom_nodes from network volume to local directory
 if [ -d "/runpod-volume/ComfyUI/custom_nodes" ]; then
     echo "ls -la /runpod-volume/ComfyUI/custom_nodes"
@@ -18,6 +19,16 @@ if [ -d "/runpod-volume/ComfyUI/custom_nodes" ]; then
 else
     echo "worker-comfyui: No custom_nodes directory found in Network Volume"
 fi
+
+
+
+echo "----------------------ls /runpod-volume/ComfyUI/models----------------------------"
+echo "ls -la /runpod-volume/ComfyUI/models"
+echo "ls -la /runpod-volume/ComfyUI/models/insightface"
+echo "----------------------ls /runpod-volume/comfyui/models----------------------------"
+echo "ls -la /runpod-volume/comfyui/models/"
+echo "ls -la /runpod-volume/comfyui/models/insightface"
+
 
 
 # Check if /runpod-volume/ComfyUI/models/insightface is mounted
