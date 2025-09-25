@@ -22,18 +22,7 @@ fi
 
 
 
-echo "----------------------ls /runpod-volume/ComfyUI/models----------------------------"
-echo "ls -la /runpod-volume/ComfyUI/models"
-ls -la /runpod-volume/ComfyUI/models/
-echo "ls -la /runpod-volume/ComfyUI/models/insightface"
-ls -la /runpod-volume/ComfyUI/models/insightface/
-echo "----------------------ls /runpod-volume/comfyui/models----------------------------"
-echo "ls -la /runpod-volume/comfyui/models/"
-ls -la /runpod-volume/comfyui/models/
-echo "ls -la /runpod-volume/comfyui/models/insightface"
-ls -la /runpod-volume/comfyui/models/insightface/
-
-
+echo "----------------------COPY UNTRACKED MODEL - insightface ----------------------------"
 
 # Check if /runpod-volume/ComfyUI/models/insightface is mounted
 if [ -d "/runpod-volume/ComfyUI/models/insightface" ]; then
@@ -48,6 +37,23 @@ if [ -d "/runpod-volume/ComfyUI/models/insightface" ]; then
     fi 
 else
     echo "/runpod-volume/ComfyUI/models/insightface directory does not exist."
+fi
+
+echo "----------------------COPY UNTRACKED MODEL - segformer_b2_clothes ----------------------------"
+
+# Check if /runpod-volume/ComfyUI/models/segformer_b2_clothes is mounted
+if [ -d "/runpod-volume/ComfyUI/models/segformer_b2_clothes" ]; then
+    echo "/runpod-volume/ComfyUI/models/segformer_b2_clothes directory exists." 
+    
+    # Create a soft link to /comfyui/models/segformer_b2_clothes if it doesn't already exist 목적지에 없으면,
+    if [ ! -L "/comfyui/models/segformer_b2_clothes" ]; then
+        ln -s /runpod-volume/ComfyUI/models/segformer_b2_clothes /comfyui/models/segformer_b2_clothes 
+        echo "Created a soft link to /comfyui/models/segformer_b2_clothes."
+    else
+        echo "Soft link already exists."
+    fi 
+else
+    echo "/runpod-volume/ComfyUI/models/segformer_b2_clothes directory does not exist."
 fi
 
 
