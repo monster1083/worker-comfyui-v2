@@ -5,7 +5,7 @@ ARG BASE_IMAGE=nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
 FROM ${BASE_IMAGE} AS base
 
 # Build arguments for this stage (defaults provided by docker-bake.hcl)
-ARG COMFYUI_VERSION=0.3.52
+ARG COMFYUI_VERSION=0.3.60
 ARG CUDA_VERSION_FOR_COMFY
 ARG ENABLE_PYTORCH_UPGRADE
 ARG PYTORCH_INDEX_URL=
